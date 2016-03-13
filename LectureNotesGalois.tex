@@ -1,0 +1,59 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks=false,bookmarks=true]{hyperref} 
+\usepackage{indentfirst}
+\usepackage{amsmath} 
+\usepackage{amsfonts}
+\usepackage{amsthm}  
+\usepackage{amssymb}
+  
+\newenvironment{packed_enum}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+ 
+\newcommand{\vect}[1]{\boldsymbol{\mathrm{#1}}}
+ 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+  
+\theoremstyle{definition}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+\begin{document}
+
+\hypersetup{
+	pdftitle={Coursera - Introduction to Galois Theory},
+	pdfauthor={Ekaterina Amerik},
+	pdfsubject={Coursera - Introduction to Galois Theory}
+	}
+	
+\title{Coursera - Introduction to Galois Theory}
+\author{Ekaterina Amerik}
+\date{27. Februar 2016}
+\maketitle
+
+\tableofcontents
+
+
+
+
+\input{LectureNotesGalois_01.tex}
+\input{LectureNotesGalois_02.tex}
+\input{LectureNotesGalois_03.tex}
+\input{LectureNotesGalois_04.tex}
+
+\end{document}
