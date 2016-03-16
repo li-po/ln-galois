@@ -1,7 +1,8 @@
 *.aux
-*.pdf
+#*.pdf
 *.dvi
 *.log
 *.toc
 *.out
+*.sh
 
