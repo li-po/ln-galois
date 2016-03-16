@@ -6,6 +6,11 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}  
 \usepackage{amssymb}
+
+% Download http://paultaylor.eu/diagrams/
+% Documentation http://www.jmilne.org/not/Mdiagrams.pdf
+\usepackage[small,nohug,heads=vee]{diagrams}
+\diagramstyle[labelstyle=\scriptstyle]
   
 \newenvironment{packed_enum}{
 \begin{enumerate}
@@ -15,8 +20,9 @@
 }{\end{enumerate}}
  
 \newcommand{\vect}[1]{\boldsymbol{\mathrm{#1}}}
- 
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
   
 \theoremstyle{definition}
 
