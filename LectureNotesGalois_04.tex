@@ -138,7 +138,88 @@ This ring is not a field. $\mathbb{C}$ is a field but this tensor square has zer
 
 \section{Relatively prime ideals. Chinese remainder theorem}
 
+So, now let me tell you about the structure of a finite algebra over a field. 
 
+\begin{definition}
+Let $A$ be a ring. One says that the ideals $I$ and $J$ are \textbf{relatively prime} if they generate $A$.
+\end{definition}
+
+\begin{lemma}
+\begin{enumerate}
+\item If $I, J$ are relatively prime $\implies$ $IJ=I\cap J$.
+\item If $I_1,\cdots I_k$ are relatively prime with $J$ $\implies$ so is their product.
+\item If $I, J$ are relatively prime $\implies$ so are $I^k$ and $J^l$, $\forall k,l$. 
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+1) $IJ\subset I\cap J$ by definition. If we are relatively prime, then we have $1=i + j$ for some $i \in I$ and $j \in J$. Then for any $x\in I\cap J$ we have $x = xi + xj$, with both $xi$ and $xj$ in $IJ$.
+
+2) Let's suppose $k = 2$. The general case is similar. $1 = i_1 + j_1 = i_2 + j_2$, where $i_1 \in I_1$, $i_2 \in I_2$, $j_1\in J$, $j_2 \in J$. $1 = (i_1 + j_1)(i_2 + j_2)=i_1 i_2 + j_1 i_2 + j_2 i_1 + j_1 j_2$. $i_1 i_2\in I_1I_2$ and the other three terms $\in J$. 
+
+3) From 2) by induction. 
+\end{proof} 
+
+$K$ field, $A$ finite $K$-algebra ( "finite" means a finite-dimensional vector space). We recall the Chinese remainder theorem. 
+
+\begin{theorem} \textbf{Chinese remainder theorem.}
+$I_1,\cdots I_n$ ideals. Consider the map $\pi: A \to A/I_2 \times \cdots \times A/I_n$. $a \mapsto (a\text{ mod }I_1, \cdots, a\text{ mod }I_n)$ ($\text{Ker }\pi=I_1\cap\cdots\cap I_b$). $\pi$ is surjective $\iff$ $I_1,\cdots I_n$ are pairwise relatively prime. And then 
+\[
+\bigslant{A}{\cap I_k}\cong\bigslant{A}{\prod I_k}\cong \prod \bigslant{A}{I_k}
+\]
+\end{theorem}
+
+\begin{proof}
+If $\pi$ is surjective $\implies$ $\exists a_i$ such that $\pi(a_i)=(0,\cdots,0,1,0,\cdots,0)$, $1$ on the $i$-th place. $a_i\in I_j$ and $1-a_i\in I_i$ for $j\neq i$ $\implies$ $I_i$ is relatively prime to any $I_j$ (since $1 = (1-a_i) + a_i$).
+
+Conversely, suppose that the ideals are relatively prime. This implies that $I_i$
+is relatively prime to $\prod_{i\neq j} I_j$. 
+
+$\exists x_i \in I_i$, $y_i \in \prod_{j\neq i} I_j$ such that $x_i + y_i = 1$. And such an element $y_i$ maps to $\pi(a_i)=(0,\cdots,0,1,0,\cdots,0)$, $1$ on the $i$-th place.
+$\sum_{i=1}^n b_iy_i\mapsto(b_1,\cdots,b_n)$, $\forall b$'s. So the map is surjective.
+
+\end{proof}
+
+Consider $A$ finite algebra over $K$. Before proving a general theorem on the structure of $A$, we state a proposition. 
+
+\begin{proposition}
+\begin{enumerate}
+\item If $A$ is an integral domain (no zero divisors) $\implies$ $A$ is a field.
+\item (rephrasing) Any prime ideal of $A$ is maximal. 
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+We prove only the first part: the second part is a consequence of definitions. In fact, a  quotient over a prime ideal is an integral domain, and a quotient over a maximal ideal is a field. (Reference: Atiyah  \& Macdonald, Introduction to commutative algebra.)
+
+First part: What means, that is an integral domain? Integral domain,no zero divisors, means that the multiplication made by any element $a$ is injective. $A$ is a finite-dimensional $K$-vector space which is surjective. $\implies$ the multiplication by $a$ is an isomorphism. In particular, it is surjective.$\implies$, $\exists b$ such that $b \times a = 1$. Which means that $A$ is a field.
+\end{proof}
 
 \section{Structure of finite algebras over a field. Examples}
 
+\begin{theorem} \textbf{Structure of finite K algebras.} Let $A$ be a finite $K$-algebra:  $A$ is a finite dimensional $K$ vector space. Then:
+\begin{enumerate}
+\item There are only finitely many maximal ideals $m_1, \cdots m_r$ in A.
+\item $J=\cap m_i=\prod m_i$ (they are relatively prime). Then $J^n= 0$ for some $n$. 
+\item $A\cong A/m_1^{n_1}\times\cdots\times A/m_r^{n_r}$ (isomorphic) for some $n_1,\cdots,n_r$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part 1. Let $m_1,\cdots m_i$ be maximal ideals. By Chinese remainder theorem we have $A/\prod m_j\cong A/m_1\times\cdots A/m_i$ (isomorphic).  $A/\prod^i_1 m_j$ and $A/mj$ are finite dimensional $K$-vector spaces.  $\text{dim}_KA\geq \text{dim}_KA/\prod^i_1 m_j=\sum \text{dim}_KA/m_j\geq i$ $\implies$ the number of maximal ideas is $\leq \text{dim}_KA$
+
+Part 2. $J$ is also a finite dimensional $K$-vector space and so are it's powers. Consider the following sequence. $J\supseteq J^2\supseteq J^3\supseteq \cdots \supseteq J^k \supseteq \cdots$ (a decrease in sequence of finite dimensional vector spaces. The dimension decreases as $k$ increases.) This sequence must stabilize. $\exists n$ such that $J^n=J^{n + 1}$. We claim that in this case $J^n= 0$. Indeed, if not, let $e_1,\cdots e_s$ be a basis of $J^n$. As $J^n=J\cdot J^n$, we can write $e_i=\sum\lambda_{ij} e_j$, for $\lambda_{ij}\in J$. If we consider the matrix $M=\mathds{1} -\lambda_{ij}$, we have that $M \cdot (e_1,\cdots,e_s)^T=0$. Since M is a matrix over a ring and not over a field, this does not immediately mean that the i's are zero but we can always find the matrix $\widetilde{M}$ such that $\widetilde{M}M=\text{det}(M)\cdot\mathds{1}$. This is possible over a ring. So the corollary is that the $\text{det}(M)\cdot (e_1,\cdots,e_s)^T=0$. $\text{det}(M)=1 + \lambda$, where $\lambda \in J$. Since $J=m_1\cap\cdots\cap m_j$ (intersection of all maximal ideals), $\lambda \in m_i$ $\forall i$. So, $1 + \lambda$ is no maximal ideal, $\nexists i, 1+\lambda\in m_i$ $\implies$ $1 + \lambda$ is invertible $\implies$ $e_i=0$. So this is a contradiction. 
+
+Part 3. By part 2, we can find $n_1,\cdots n_r$ such that $n_1^{n_1}\cdot\cdots\cdot n_r^{n_r}=0$. (for instance take all $n_i=n$). Then by Chinese remainder theorem, $A\cong A/m_1^{m_1}\times\cdots A/m_r^{m_r}$. Since $A=A/m_1^{m_1}\cdots A/m_r^{m_r}$, where $m_i^{m_i}$ are pairwise relatively prime. So this proves the theorem. 
+\end{proof}
+
+Remark. The $n_i$'s are not uniquely determined. For instance, $A=K[x]/(x^2\cdot(x+1)^3)$ . Then we have two maximal ideals. $m_1=(x)$ and $m_2 =(x + 1)$. Then $A = A/m_1 ^2\times A/m_2 ^3$ but also $A\cong A/m_1 ^3 \times A/ m_2 ^3$. Reason: $m_1^2= m_1^3$. In $A$ the ideal $(x)^2\supset (x)^3$, but also, the converse is true. This is not true in
+the polynomial ring but it is true in A (verification as an exercise).
+
+Examples of finite dimensional K algebras. 
+\begin{example}
+$\mathbb{C}\otimes_{\mathbb{R}}\mathbb{C}=\mathbb{C}\times\mathbb{C}$. 
+$\mathbb{Q}(\sqrt{2})\otimes_{\mathbb{Q}}\mathbb{Q}(\sqrt{3})=\mathbb{Q}(\sqrt{2},\sqrt{3})$. All these algebras are products of fields: all $n_i=1$. In other words, we don't have nilpotents in our algebra. Reduced algebras (by definition  without nilpotents).
+\end{example}
+
+In the next lecture, you will see that this is a general phenomenon. The presence of nilpotents is due to the inseparability of extensions.
